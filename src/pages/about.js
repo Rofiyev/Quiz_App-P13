@@ -107,7 +107,7 @@ const ArticleList = () => {
                 recognizable as just software companies — instead, they bring
                 food to our door, help us get a taxi, influence outcomes in
                 presidential elections, or act as a personal trainer. When
-                you’re walking down the street, where can you find technology in
+                you`re walking down the street, where can you find technology in
                 your environment? Click on the white circles.
               </Text>
               <BlogAuthor
@@ -189,7 +189,7 @@ const ArticleList = () => {
               write computer programs and computer software. A programming
               language is like a set of commands that tell the computer how to
               do things. Usually, the programming language uses real words for
-              some of the commands (e.g. "if... then... else...", "and", "or"),
+              some of the commands (e.g. if... then... else..., and, or),
               so that the language is easier for a human to understand. Like any
               normal language, many programming languages use punctuation. To
               make a program, a programmer writes commands in their chosen
@@ -202,8 +202,8 @@ const ArticleList = () => {
               but which is much harder for a person to read. Computer programs
               must be written very carefully. If a programmer makes mistakes,
               then the program might then stop working, which is called
-              "crashing". When a program has a problem because of how the code
-              was written, this is called a "bug". A very small mistake can
+              crashing. When a program has a problem because of how the code
+              was written, this is called a bug. A very small mistake can
               cause very serious bugs.
             </Text>
           </VStack>
