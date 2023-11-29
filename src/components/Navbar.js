@@ -72,6 +72,9 @@ export default function Navbar() {
   return (
     <Box
       as={"header"}
+      height={'13vh'}
+      display={'flex'}
+      alignItems={'center'}
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
@@ -117,7 +120,7 @@ export default function Navbar() {
                   minW={0}
                 >
                   <Avatar
-                    size={"sm"}
+                    size={"md"}
                     src={
                       "https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png"
                     }

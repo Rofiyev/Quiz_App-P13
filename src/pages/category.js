@@ -102,7 +102,7 @@ export default function Category({ data }) {
                         bg: "gray.400",
                       }}
                     >
-                      <Link href={auth ? `category/${item.id}` : "/login"}>
+                      <Link href={auth ? `category/${item.id}` : "/signIn"}>
                         Start
                       </Link>
                     </chakra.button>

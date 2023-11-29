@@ -20,6 +20,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalFooter,
+  Container
 } from "@chakra-ui/react";
 import answer_fon from "@/assets/answer.png";
 import { useEffect } from "react";
@@ -85,6 +86,7 @@ export default function CategoryDetail() {
       <Head>
         <title>Python Test</title>
       </Head>
+      <Container maxW={'6xl'}>
       <Stack minH={"100vh"} direction={{ base: "column", md: "row-reverse" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           {!questions.length ? (
@@ -189,6 +191,7 @@ export default function CategoryDetail() {
           />
         </Flex>
       </Stack>
+      </Container>
     </>
   );
 }
