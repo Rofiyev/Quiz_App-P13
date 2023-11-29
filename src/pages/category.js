@@ -11,8 +11,11 @@ import Layout from "@/layout";
 import { BASE_API_URL } from "@/constants";
 import axios from "axios";
 import Link from "next/link";
+import { useStateContext } from "@/context";
 
 export default function Category({ data }) {
+  const { auth } = useStateContext();
+
   return (
     <>
       <Head>
@@ -99,7 +102,9 @@ export default function Category({ data }) {
                         bg: "gray.400",
                       }}
                     >
-                      <Link href={`category/${item.id}`}>Start</Link>
+                      <Link href={auth ? `category/${item.id}` : "/login"}>
+                        Start
+                      </Link>
                     </chakra.button>
                   </Flex>
                 </Box>
