@@ -7,7 +7,6 @@ const DataFetching = {
       const { data } = await axios.post(`${BASE_API_URL}/users/register`, body);
       return data && { success: true, msg: "Register Successfully", data };
     } catch (error) {
-      console.log(error);
       const { email, password, username } = error.response.data;
       let msg =
         (email && email) || (password && password) || (username && username);
@@ -27,7 +26,6 @@ const DataFetching = {
       );
       return { success: true, msg: data.message };
     } catch (error) {
-      console.log(error);
       return {
         success: false,
         msg: "Make sure the verification code is correct!",
@@ -40,7 +38,6 @@ const DataFetching = {
       const { data } = await axios.post(`${BASE_API_URL}/users/login`, body);
       return { success: true, msg: "Sign In Successfully", data };
     } catch (error) {
-      console.log(error);
       return {
         success: false,
         msg: error.response.data.detail,
@@ -55,7 +52,6 @@ const DataFetching = {
       });
       return { data };
     } catch (error) {
-      console.log(error);
       return { data: null };
     }
   },
@@ -68,7 +64,6 @@ const DataFetching = {
       );
       return data && { msg: "Message sent successfully" };
     } catch (error) {
-      console.log(error);
       return { msg: "" };
     }
   },
@@ -80,7 +75,6 @@ const DataFetching = {
       });
       return data && { success: true, data, msg: "Message saved successfully" };
     } catch (error) {
-      console.log(error);
       return {
         success: false,
         data: null,
@@ -98,10 +92,8 @@ const DataFetching = {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log();
       return data && { success: true, msg: data.detail };
     } catch (error) {
-      console.log(error);
       return {
         success: false,
         msg: "There was an error with the message!",
@@ -118,10 +110,8 @@ const DataFetching = {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(data);
       return data && { success: true, msg: "Successfully converted!" };
     } catch (error) {
-      console.log(error);
       return {
         success: false,
         msg: "There was an error with the message!",
@@ -139,7 +129,34 @@ const DataFetching = {
       );
       return data && { success: true, data };
     } catch (error) {
-      console.log(error);
+      return {
+        success: false,
+        data: null,
+      };
+    }
+  },
+
+  async getResults(body, token) {
+    try {
+      const { data } = await axios.post(`${BASE_API_URL}/quizes/answer`, body, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return data && { success: true, data };
+    } catch (error) {
+      return {
+        success: false,
+        data: null,
+      };
+    }
+  },
+
+  async getHistory(token) {
+    try {
+      const { data } = await axios.get(`${BASE_API_URL}/quizes/history`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return data && { success: true, data };
+    } catch (error) {
       return {
         success: false,
         data: null,

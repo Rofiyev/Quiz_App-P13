@@ -6,3 +6,18 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+#confetti {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.confetti-explosion-screen-0-2-719 {
+  z-index: 99999 !important;
+}
+
+.css-wl0d9u {
+  z-index: 100;
+}

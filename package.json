@@ -20,10 +20,13 @@
     "next": "14.0.3",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18",
+    "react-confetti": "^6.1.0",
+    "react-confetti-explosion": "^2.1.2",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-multi-carousel": "^2.8.4",
     "react-slick": "^0.29.0",
+    "react-use": "^17.4.1",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
