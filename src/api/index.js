@@ -57,11 +57,13 @@ const DataFetching = {
   },
 
   async sendMessage(body) {
+    console.log(body);
     try {
       const { data } = await axios.post(
-        `${BASE_API_URL}/quizes/send_mail`,
+        `${BASE_API_URL}/quizes/feedback`,
         body
       );
+      console.log(data);
       return data && { msg: "Message sent successfully" };
     } catch (error) {
       return { msg: "" };
@@ -155,6 +157,18 @@ const DataFetching = {
       const { data } = await axios.get(`${BASE_API_URL}/quizes/history`, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      return data && { success: true, data };
+    } catch (error) {
+      return {
+        success: false,
+        data: null,
+      };
+    }
+  },
+
+  async getFeedback() {
+    try {
+      const { data } = await axios.get(`${BASE_API_URL}/quizes/feedback-list`);
       return data && { success: true, data };
     } catch (error) {
       return {

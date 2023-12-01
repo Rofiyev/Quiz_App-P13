@@ -72,7 +72,7 @@ export default function Category({ data }) {
                     w="full"
                     fit="cover"
                     mt={2}
-                    src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHl0aG9ufGVufDB8fDB8fHww"
+                    src={item.image}
                     alt="Programming language"
                   />
                   <Flex
@@ -84,7 +84,7 @@ export default function Category({ data }) {
                     roundedBottom="lg"
                   >
                     <chakra.h1 color="white" fontWeight="bold" fontSize="lg">
-                      Test: 30
+                      Test: {item.questions_count}
                     </chakra.h1>
                     <chakra.button
                       px={2}

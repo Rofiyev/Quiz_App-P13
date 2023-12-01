@@ -41,6 +41,7 @@ export default function Feedback() {
   const toast = useToast();
 
   const handleFormSubmit = async (values, resetForm) => {
+    console.log(values);
     setIsLoading(true);
     const { msg } = await DataFetching.sendMessage(values);
     if (msg.length) {
@@ -165,7 +166,7 @@ export default function Feedback() {
                       name: "",
                       phone: "+998",
                       email: "",
-                      message: "",
+                      description: "",
                     }}
                     onSubmit={(values, { resetForm }) =>
                       handleFormSubmit(values, resetForm)
@@ -249,13 +250,15 @@ export default function Feedback() {
                           </FormControl>
 
                           <FormControl
-                            isInvalid={!!errors.message && touched.message}
+                            isInvalid={
+                              !!errors.description && touched.description
+                            }
                             isRequired
                           >
                             <FormLabel>Message</FormLabel>
                             <Field
                               as={Textarea}
-                              name="message"
+                              name="description"
                               placeholder="Your Message"
                               rows={6}
                               resize="none"
@@ -270,7 +273,7 @@ export default function Feedback() {
                               }}
                             />
                             <FormErrorMessage fontSize={"0.7rem"}>
-                              {errors.message}
+                              {errors.description}
                             </FormErrorMessage>
                           </FormControl>
 

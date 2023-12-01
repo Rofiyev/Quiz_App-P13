@@ -18,7 +18,7 @@ import {
 import loginImage from "@/assets/login.png";
 import { Formik, Field } from "formik";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import {  useState } from "react";
+import { useState } from "react";
 import DataFetching from "@/api";
 import { useRouter } from "next/router";
 import { setToken, clearToken } from "@/utils";
@@ -128,16 +128,16 @@ export default function Home() {
                       </FormErrorMessage>
                     </FormControl>
                     <Stack spacing={6}>
-                      <Stack
+                      {/* <Stack
                         direction={{ base: "column", sm: "row" }}
                         align={"start"}
                         justify={"space-between"}
                       >
                         <Text></Text>
                         <Text color={"blue.500"}>
-                          <Link href="/forgotPassword">Forgot password?</Link>
+                          <Link href="/confrimPassword">Forgot password?</Link>
                         </Text>
-                      </Stack>
+                      </Stack> */}
                       <Button
                         loading={isLoadingButton}
                         loadingText="Submitting"

@@ -20,9 +20,16 @@ import {
   Center,
 } from "@chakra-ui/react";
 import forgot from "@/assets/forgot.png";
+import { useState } from "react";
 
 export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [email, setEmail] = useState("");
+
+  function forgotPasswordFunc() {
+    onOpen();
+    
+  }
 
   return (
     <>
@@ -50,11 +57,12 @@ export default function Home() {
             >
               You&apos;ll get an email with a reset link
             </Text>
-            <FormControl id="email">
+            <FormControl id="email" isRequired>
               <Input
                 placeholder="your-email@example.com"
                 _placeholder={{ color: "gray.500" }}
                 type="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </FormControl>
             <Stack spacing={6}>
@@ -64,7 +72,7 @@ export default function Home() {
                 _hover={{
                   bg: "blue.500",
                 }}
-                onClick={onOpen}
+                onClick={forgotPasswordFunc}
               >
                 Request Reset
               </Button>
@@ -107,7 +115,7 @@ export default function Home() {
               fontWeight="bold"
               color={useColorModeValue("gray.800", "gray.400")}
             >
-              username@mail.com
+              {email}
             </Center>
             <FormControl>
               <Center>

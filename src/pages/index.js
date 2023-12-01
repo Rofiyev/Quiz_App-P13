@@ -15,8 +15,20 @@ import fon from "@/assets/home.png";
 import Layout from "@/layout";
 import { Testimonials, Features } from "@/components";
 import Link from "next/link";
+import DataFetching from "@/api";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [feedback, setFeedback] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await DataFetching.getFeedback();
+      setFeedback(data);
+    })();
+  }, []);
+
   return (
     <>
       <Head>
@@ -84,7 +96,7 @@ export default function Home() {
           <Container as={"section"} maxW={"7xl"}>
             <Features />
             <Stack minH={"70vh"} direction={{ base: "column", md: "row" }}>
-              <Testimonials />
+              {feedback && <Testimonials feedback={feedback} />}
             </Stack>
           </Container>
         </Box>
