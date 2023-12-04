@@ -157,7 +157,7 @@ const DataFetching = {
       const { data } = await axios.get(`${BASE_API_URL}/quizes/history`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return data && { success: true, data };
+      return data && { success: true, data: data ? data : [] };
     } catch (error) {
       return {
         success: false,

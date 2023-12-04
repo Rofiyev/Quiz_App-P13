@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 
 export default function Home() {
-  const [resData, setResData] = useState();
+  const [resData, setResData] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -42,34 +42,36 @@ export default function Home() {
           <Heading size="xl" align={"center"} fontFamily={"inherit"} mb={4}>
             Table of solutions
           </Heading>
-          <TableContainer w="full">
-            <Table variant="simple">
-              <Thead>
-                <Tr>
-                  <Th fontFamily={"inherit"}>Number</Th>
-                  <Th fontFamily={"inherit"}>Category</Th>
-                  <Th fontFamily={"inherit"}>Result</Th>
-                  <Th fontFamily={"inherit"}>Date</Th>
-                  <Th fontFamily={"inherit"}>Status</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {resData?.map((item, i) => (
-                  <Tr key={i}>
-                    <Td>{i + 1}</Td>
-                    <Td>{item.category}</Td>
-                    <Td>{item.correct}</Td>
-                    <Td>{item.time}</Td>
-                    <Td display={"flex"} gap={"2px"}>
-                      {[...Array(countStar(item.correct))].map((_, i) => (
-                        <FaStar key={i} style={{ color: "orange" }} />
-                      ))}
-                    </Td>
+          {resData.length && (
+            <TableContainer w="full">
+              <Table variant="simple">
+                <Thead>
+                  <Tr>
+                    <Th fontFamily={"inherit"}>Number</Th>
+                    <Th fontFamily={"inherit"}>Category</Th>
+                    <Th fontFamily={"inherit"}>Result</Th>
+                    <Th fontFamily={"inherit"}>Date</Th>
+                    <Th fontFamily={"inherit"}>Status</Th>
                   </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          </TableContainer>
+                </Thead>
+                <Tbody>
+                  {resData?.map((item, i) => (
+                    <Tr key={i}>
+                      <Td>{i + 1}</Td>
+                      <Td>{item.category}</Td>
+                      <Td>{item.correct}</Td>
+                      <Td>{item.time}</Td>
+                      <Td display={"flex"} gap={"2px"}>
+                        {[...Array(countStar(item.correct))].map((_, i) => (
+                          <FaStar key={i} style={{ color: "orange" }} />
+                        ))}
+                      </Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            </TableContainer>
+          )}
         </Container>
       </Layout>
     </>
