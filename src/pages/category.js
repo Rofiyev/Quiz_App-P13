@@ -68,7 +68,7 @@ export default function Category({ data }) {
                     </chakra.p>
                   </Box>
                   <Image
-                    h={48}
+                    h={320}
                     w="full"
                     fit="cover"
                     mt={2}
