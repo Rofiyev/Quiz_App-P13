@@ -54,7 +54,7 @@ export default function Home() {
                       zIndex: -1,
                     }}
                   >
-                    Quzi App
+                    Quiz App
                   </Text>
                   <br />{" "}
                   <Text color={"blue.400"} as={"span"}>
